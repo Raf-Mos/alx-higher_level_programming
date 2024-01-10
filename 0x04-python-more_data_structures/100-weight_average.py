@@ -3,7 +3,7 @@
 def weight_average(my_list=[]):
     if not my_list:
         return 0
-    
+
     sum_1 = 0
     sum_2 = 0
     for (x, y) in my_list:
