@@ -4,7 +4,7 @@ def roman_to_int(roman_string):
         return 0
     som = 0
     saved_roman = 'I'
-    roman = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'c': 100, 'D': 500, 'M': 1000}
+    roman = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
     for n in reversed(range(len(roman_string))):
         if roman[roman_string[n]] >= roman[saved_roman]:
             saved_roman = roman_string[n]
