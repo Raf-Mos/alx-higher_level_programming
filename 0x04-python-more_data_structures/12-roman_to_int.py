@@ -6,7 +6,7 @@ def roman_to_int(roman_string):
     saved_roman = 'I'
     roman = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'c': 100, 'D': 500, 'M': 1000}
     for n in reversed(range(len(roman_string))):
-        if roman[romain_string[n]] >= roman[saved_roman]:
+        if roman[roman_string[n]] >= roman[saved_roman]:
             saved_roman = roman_string[n]
             som += roman[roman_string[n]]
         else:
