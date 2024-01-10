@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 def weight_average(my_list=[]):
-    for (x, y) in my_list:
-        weight = sum(x * y) / sum(y)
+        weight = (sum(x * y) / sum(y)) for (x, y) in my_list
 
     return weight
