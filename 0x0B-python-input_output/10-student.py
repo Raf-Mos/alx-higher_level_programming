@@ -17,10 +17,6 @@ class Student:
         included in the list.
         """
         if (type(attrs) == list and
-            all(type(ele) == str for ele in attrs)):
-            my_dict = dict()
-            for key, value in self.__dict__.items():
-                if key in attrs:
-                    my_dict[key] = value
-            return my_dict
+                all(type(ele) == str for ele in attrs)):
+            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
         return self.__dict__
