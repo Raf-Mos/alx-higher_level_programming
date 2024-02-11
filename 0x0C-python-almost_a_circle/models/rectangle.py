@@ -9,10 +9,10 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         """Constructor"""
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
     @property
     def width(self):
@@ -58,3 +58,7 @@ class Rectangle(Base):
             raise ValueError("{} must be >= 0".format(name))
         elif not eq_zero and value <= 0:
             raise ValueError("{} must be > 0".format(name))
+
+    def area(self):
+        """area of the Rectangle"""
+        return self.height * self.width
