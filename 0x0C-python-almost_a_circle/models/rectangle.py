@@ -18,6 +18,7 @@ class Rectangle(Base):
     def width(self):
         """The width property."""
         return self.__width
+
     @width.setter
     def width(self, value):
         self.validate_att("width", value, False)
@@ -27,6 +28,7 @@ class Rectangle(Base):
     def height(self):
         """The height property."""
         return self.__height
+
     @height.setter
     def height(self, value):
         self.validate_att("height", value, False)
@@ -36,6 +38,7 @@ class Rectangle(Base):
     def x(self):
         """The x property."""
         return self.__x
+
     @x.setter
     def x(self, value):
         self.validate_att("x", value)
@@ -45,6 +48,7 @@ class Rectangle(Base):
     def y(self):
         """The y property."""
         return self.__y
+
     @y.setter
     def y(self, value):
         self.validate_att("y", value)
@@ -52,7 +56,7 @@ class Rectangle(Base):
 
     def validate_att(self, name, value, eq_zero=True):
         """Method to check the attributes"""
-        if type(value) != int:
+        if not isinstance(value, int):
             raise TypeError("{} must be an integer".format(name))
         if eq_zero and value < 0:
             raise ValueError("{} must be >= 0".format(name))
