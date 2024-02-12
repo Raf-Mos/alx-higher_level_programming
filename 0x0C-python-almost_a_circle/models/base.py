@@ -1,16 +1,16 @@
 #!/usr/bin/python3
-"""Base Class."""
+'''Module for Base class.'''
 from json import dumps, loads
 import csv
 
 
 class Base:
-    """the “base” of all other classes in this project"""
+    '''A representation of the base of our OOP hierarchy.'''
 
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """Initialization of the base object"""
+        '''Constructor.'''
         if id is not None:
             self.id = id
         else:
@@ -19,30 +19,30 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """Return the JSON serialization of a list of dicts."""
+        '''Jsonifies a dictionary so it's quite rightly and longer.'''
         if list_dictionaries is None or not list_dictionaries:
             return "[]"
         else:
             return dumps(list_dictionaries)
 
-    @classmethod
-    def save_to_file(cls, list_objs):
-        """Write the JSON serialization of a list of objects to a file."""
-        if list_objs is not None:
-            list_dict = [o.to_dictionary() for o in list_objs]
-        with open("{}.json".format(cls.__name__), "w") as f:
-            f.write(cls.to_json_string(list_dict))
-
     @staticmethod
     def from_json_string(json_string):
-        '''from json to a dictionary.'''
+        '''Unjsonifies a dictionary.'''
         if json_string is None or not json_string:
             return []
         return loads(json_string)
 
     @classmethod
+    def save_to_file(cls, list_objs):
+        '''Saves jsonified object to file.'''
+        if list_objs is not None:
+            list_objs = [o.to_dictionary() for o in list_objs]
+        with open("{}.json".format(cls.__name__), "w", encoding="utf-8") as f:
+            f.write(cls.to_json_string(list_objs))
+
+    @classmethod
     def create(cls, **dictionary):
-        """returns an instance with all attributes already set"""
+        '''Loads instance from dictionary.'''
         from models.rectangle import Rectangle
         from models.square import Square
         if cls is Rectangle:
