@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-prints all City objects
+creates the State “California” with the City “San Francisco”
 from the database hbtn_0e_6_usa
 """
 import sys
